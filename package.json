@@ -1,0 +1,19 @@
+{
+  "name": "rs-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "my_caesar_cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Uporold/RS-node-js.git"
+  },
+  "author": "Vasiliy Ryndin (Uporold)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Uporold/RS-node-js/issues"
+  },
+  "homepage": "https://github.com/Uporold/RS-node-js#readme"
+}
