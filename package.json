@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "my_caesar_cli.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Uporold/RS-node-js/issues"
   },
-  "homepage": "https://github.com/Uporold/RS-node-js#readme"
+  "homepage": "https://github.com/Uporold/RS-node-js#readme",
+  "dependencies": {
+    "commander": "^7.2.0"
+  }
 }
