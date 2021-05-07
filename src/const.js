@@ -1,2 +1,6 @@
 export const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
-export const ENCODE = 'encode';
+
+export const Action = {
+  ENCODE: 'encode',
+  DECODE: 'decode',
+};

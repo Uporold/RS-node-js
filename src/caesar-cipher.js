@@ -1,7 +1,15 @@
-import {alphabet, ENCODE} from "./const";
+import {alphabet, Action} from "./const.js";
 
-const doCrypt = (text, shift, action = ENCODE) => {
-  if (action === ENCODE) {
+/**
+ *
+ * @param {string} text - Input text to encode/decode
+ * @param {number} shift - Shift of caesar cipher
+ * @param {string} action - type of action - encode | decode
+ * @returns {string}
+ */
+
+export const doCrypt = (text, shift, action ) => {
+  if (action !== Action.ENCODE) {
     shift = -shift;
   }
   return text.split('').map((char) => {
@@ -17,5 +25,4 @@ const doCrypt = (text, shift, action = ENCODE) => {
       return char;
     }
   }).join('');
-
 }
