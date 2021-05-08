@@ -5,7 +5,7 @@ import {doCrypt} from "./caesar-cipher.js";
  * Reads input, processes data and then outputs new data
  */
 export class TextTransform extends Transform {
-  constructor(shift, action, ) {
+  constructor(shift, action) {
     super();
     this.shift = +shift;
     this.action = action;

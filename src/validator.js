@@ -26,7 +26,7 @@ export class Validator {
   }
 
   /**
-   * Checks given file accessibility, also if file mode is read checks file existence
+   * Checks given file accessibility and existence
    * @param {string} file - file path
    * @param {number} mode - constant for fs.accessSync()
    * @private
@@ -40,7 +40,7 @@ export class Validator {
         } catch (e) {
           this.errors.push(`${ErrorText.ACCESS} ${path.resolve(file)}`);
         }
-      } else if (mode === fs.constants.R_OK && file) {
+      } else if (file) {
         this.errors.push(`${ErrorText.NO_FILE} ${path.resolve(file)}`);
       }
   }
@@ -63,9 +63,12 @@ export class Validator {
       this.errors.push(`${ErrorText.ACTION} ${this.action}`);
     }
 
+    if (this.input === this.output && this.input && this.output) {
+      this.errors.push(ErrorText.EQUAL_FILES);
+    }
+
     this._checkFileAccessibility(this.output, fs.constants.W_OK);
     this._checkFileAccessibility(this.input, fs.constants.R_OK);
-
   }
 
   /**

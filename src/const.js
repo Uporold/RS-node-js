@@ -12,7 +12,8 @@ export const ErrorText = {
   NO_FILE: 'No such file in path',
   NO_SHIFT: 'No shift value provided',
   NO_ACTION: 'No action value provided',
-  DIR_OPERATION: 'Illegal operation on a directory'
+  DIR_OPERATION: 'Illegal operation on a directory',
+  EQUAL_FILES: 'Output and input files can`t be same!',
 }
 
 export const Mode = {

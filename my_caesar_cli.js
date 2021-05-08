@@ -25,7 +25,10 @@ pipeline(
   transform,
   writeStream,
   (err) => {
-    err && process.stderr.write(err);
+    if (err) {
+      process.stderr.write(err.message);
+      process.exit(1);
+    }
   }
 )
 
