@@ -1,5 +1,5 @@
 import {program} from 'commander';
-import fs from 'fs';
+import * as fs from 'fs';
 import {pipeline} from 'stream';
 import {Validator} from "./src/validator.js";
 import {TextTransform} from "./src/text-transform.js";

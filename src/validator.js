@@ -1,6 +1,6 @@
 import {Action, ErrorText, Mode} from "./const.js";
-import fs from "fs";
-import path from "path";
+import * as fs from 'fs';
+import * as path from "path";
 
 /**
  * Validate incoming options from CLI
