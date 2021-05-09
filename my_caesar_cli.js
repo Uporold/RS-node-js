@@ -1,8 +1,6 @@
 import {program} from 'commander';
-import * as fs from 'fs';
-import {pipeline} from 'stream';
 import {Validator} from "./src/validator.js";
-import {TextTransform} from "./src/text-transform.js";
+import {createPipeline} from "./src/create-pipeline.js";
 
 program
   .description('Caesar cipher CLI')
@@ -12,24 +10,9 @@ program
   .option('-o, --output <value>' , "Output file [Optional]")
   .parse(process.argv);
 
-const { shift, action, input, output } = program.opts();
+const options = program.opts();
 
-new Validator(program.opts()).init();
-
-const readStream = input ? fs.createReadStream(input) : process.stdin;
-const writeStream = output ? fs.createWriteStream(output, { flags: 'a' }) : process.stdout;
-const transform = new TextTransform(shift, action);
-
-pipeline(
-  readStream,
-  transform,
-  writeStream,
-  (err) => {
-    if (err) {
-      process.stderr.write(err.message);
-      process.exit(1);
-    }
-  }
-)
+new Validator(options).init();
+createPipeline(options)
 
 
