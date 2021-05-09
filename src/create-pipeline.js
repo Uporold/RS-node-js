@@ -10,20 +10,17 @@ import {pipeline} from "stream";
 export const createPipeline = (options) => {
   const { shift, action, input, output } = options;
   const readStream = input ? fs.createReadStream(input) : process.stdin;
-  const writeStream = output ? fs.createWriteStream(output, { flags: 'a' }) : process.stdout;
+  const writeStream = output
+    ? fs.createWriteStream(output, { flags: "a" })
+    : process.stdout;
   const transform = new TextTransform(shift, action);
 
-  return pipeline(
-  readStream,
-  transform,
-  writeStream,
-  (err) => {
+  return pipeline(readStream, transform, writeStream, (err) => {
     if (err) {
       process.stderr.write(err.message);
       process.exit(1);
     }
-  }
-)
-}
+  });
+};
 
 
